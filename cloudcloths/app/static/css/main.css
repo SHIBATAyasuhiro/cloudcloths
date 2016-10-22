@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    background-color: #e0e0e0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.mt {
+    margin-top: 15px;
+}
+::-moz-selection {
+  background-color: #BA68C8;
+  color: #fff;
+}
+
+::selection {
+  background-color: #BA68C8;
+  color: #fff;
+}
+.brand-logo img {
+    margin-top: 12px;
+    margin-left: 20px;
+}
+
+.productList ul {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.productList ul li {
+    display: inline-block;
+    padding: 5px;
+}
+.productList li img {
+    max-width: 250px;
+}
+.card-action {
+    text-align: left;
+}
+.card-image {
+    position: relative;
+}
+.card-image .fav_tag {
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.rentalFormWrap {
+    min-height: 800px;
+}
+.reserveFormWrap {
+    min-height: 500px;
+    border:1px solid #c2c0c2;
+}
+.pd_left {
+    padding-left: 300px;
+}
+.sideBar {
+    position: fixed;
+    top:0;
+    left:0;
+    min-height:100vh;
+    background-color: #fafafa;
+    width: 16.66666%;
+}
+
+.productDetailWrap {
+    background-color: #fafafa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.detailTitle {
+    padding: 0 15px;
+    position: relative;
+}
+.detailTitle h1 {
+    margin:0;
+}
+.detailTitle .fav_tag_detail {
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.detailImages {
+    overflow-x: auto;
+    overflow-y:hidden;
+    width:100%;
+    white-space:nowrap;
+}
+.detailImg {
+    display:inline-block;
+    margin-right:0px;
+    width: 23%;
+    vertical-align:top;
+    white-space:normal;
+}
+.detailImg img {
+    width: 100%;
+    height:auto;
+}
+nav.breadNav {
+   background-color: #424242;
+}

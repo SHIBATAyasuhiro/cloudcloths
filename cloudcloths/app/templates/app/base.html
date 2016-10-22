@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"ja" }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My books{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/materialize.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/fav.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

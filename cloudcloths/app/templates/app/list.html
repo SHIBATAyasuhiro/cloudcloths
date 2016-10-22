@@ -1,0 +1,44 @@
+
+{% extends "app/base.html" %}
+
+{% block title %}share cloths list{% endblock title %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="mainVisualWrap">
+    </div>
+    <div class="productList container">
+        {% if latest_product_list %}
+            <ul>
+            {% for product in latest_product_list %}
+                <li>
+                    <div class="product">
+
+                      <div class="product_media">
+                        <img src="{{ product.product_img1.url }}" alt="{{ product.product_name }}" class="img-responsive center-block">
+                      </div>
+                      <div class="product_name">
+                         <h4>{{ product.product_name }}</h4>
+                      </div>
+                      <div class="product_supporting-text">
+                        <p>{{ product.product_caption }}</p>
+                      </div>
+                      <div class="product_actions">
+                         <a href="/app/{{ product.id }}/detail">learn more</a>
+                      </div>
+                    </div>
+                </li>
+            {% endfor %}
+                <div class="clearfix"></div>
+            </ul>
+        {% else %}
+            <p>No products are available.</p>
+        {% endif %}
+    </div>
+
+
+
+{% endblock content %}

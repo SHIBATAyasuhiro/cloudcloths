@@ -1,0 +1,94 @@
+
+{% extends "app/base.html" %}
+
+{% block title %}share cloths list{% endblock title %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/app" class="brand-logo"><img src="{% static 'img/anvie_logo_black.png' %}"height="40"></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+              {% if user.is_active %}
+                    <li>
+                        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>{{ user.username }}</a>
+                    </li>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">マイページ</a></li>
+                        <li class="divider"></li>
+                        <li><a class="modal-trigger" href="#modal1">ログアウト</a></li>
+                    </ul>
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                          <h4>ログアウト</h4>
+                          <p>本当にログアウトしますか？</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a class="modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+                          <a href="{% url 'app:logout_with_redirect' %}" class="modal-action modal-close waves-effect waves-green btn-flat">ログアウト</a>
+                        </div>
+                    </div>
+              {% else %}
+                    <li><a href="{% url 'app:user_creation' %}">サインアップ</a></li>
+                    <li><a href="{% url 'app:login' %}">ログイン</a></li>
+              {% endif %}
+              </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col s2 no-padding">
+            <div class="sideBar">
+
+            </div>
+        </div>
+        <div class="col s10">
+
+            <div class="productList">
+                {% if latest_product_list %}
+                    <ul>
+                    {% for product in latest_product_list %}
+                        <li>
+                        <div class="card">
+                            <div class="card-image">
+                              <img src="{{ product.product_img1.url }}" alt="{{ product.product_name }}" class="img-responsive center-block">
+                              <span class="card-title">{{ product.product_brand }}</span>
+                              <div class="fav_tag">
+                                {% load favorite_tags %}
+                                {% get_fav_count product %}
+                                {% if user.is_authenticated %}
+                                    {%  get_fav product user %}
+                                {% else %}
+                                    {% get_fav_nouser product request %}
+                                {% endif %}
+                              </div>
+                            </div>
+
+                            <div class="card-action">
+                              <a href="/app/{{ product.id }}/detail"><i class="material-icons">arrow_forward</i></a>
+                            </div>
+                        </div>
+
+                        </li>
+                    {% endfor %}
+                        <div class="clearfix"></div>
+                    </ul>
+                {% else %}
+                    <p>No products are available.</p>
+                {% endif %}
+                <h1>{{ user_name }}</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock content %}
